@@ -10,12 +10,12 @@ const Voice = (props) => {
 
   return (
     <div class="container">
-      <Typography variant="h6" component="h2">
-        {props.item.name}
-      </Typography>
       <Button variant="contained" onClick={NewVoiting}>
-        {props.item.voice}
+        {props.item.name}
       </Button>
+      <Typography variant="h6" component="h2">
+        {props.item.voice}
+      </Typography>
     </div>
   );
 };

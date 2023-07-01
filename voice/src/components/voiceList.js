@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import Voice from "./voice";
 
-let init = [
+let result = [
   {
-    name: "Вася Иванов",
+    key:0,
+    name: "Мне нравится Java",
     voice: 3,
   },
   {
-    name: "Петя Сидоров",
+    key:1,
+    name: "Мне нравится JavaScript",
     voice: 4,
   },
   {
-    name: "Катя Петрова",
+    key:2,
+    name: "Мне нравится C#",
     voice: 7,
   },
   {
-    name: "Саша Козлов",
+    key:3,
+    name: "Мне не нравится программирование",
     voice: 1,
   },
 ];
@@ -23,18 +27,17 @@ let init = [
 let key = 0;
 
 const VoiceList = () => {
-  const [result, setResult] = useState(false);
+  const [state, setState] = useState(false);
 
   const cbNewVoiting = (keyID) => {
-    init[keyID].voice++;
-    setResult(!result);
+    result[keyID].voice++;
+    setState(!state);
     key = 0;
-    init.map((item) => console.log(item.voice));
   };
 
   return (
     <div>
-      {init.map((item, keyID = key) => (
+      {result.map((item, keyID = key) => (
         <Voice keyID={keyID++} item={item} cbNewVoiting={cbNewVoiting} />
       ))}
     </div>
